@@ -1,0 +1,212 @@
+{
+    "application_name": "cifar10C",
+    "optimization_objectives": [
+        "loss"
+    ],
+    "feasible_output": {
+        "enable_feasible_predictor": true,
+        "name": "Valid",
+        "true_value": "True",
+        "false_value": "False"
+    },
+    "optimization_iterations": 190,
+    "number_of_cpus": 1,
+    "local_search_starting_points": 3,
+    "local_search_random_points": 100,
+    "input_parameters": {
+        "op_node_0": {
+            "parameter_type": "categorical",
+            "values": [
+                0,
+                1,
+                2
+            ]
+        },
+        "op_node_1": {
+            "parameter_type": "categorical",
+            "values": [
+                0,
+                1,
+                2
+            ]
+        },
+        "op_node_2": {
+            "parameter_type": "categorical",
+            "values": [
+                0,
+                1,
+                2
+            ]
+        },
+        "op_node_3": {
+            "parameter_type": "categorical",
+            "values": [
+                0,
+                1,
+                2
+            ]
+        },
+        "op_node_4": {
+            "parameter_type": "categorical",
+            "values": [
+                0,
+                1,
+                2
+            ]
+        },
+        "n_edges": {
+            "parameter_type": "integer",
+            "values": [
+                0,
+                9
+            ]
+        },
+        "edge_0_1": {
+            "parameter_type": "real",
+            "values": [
+                0,
+                1
+            ]
+        },
+        "edge_0_2": {
+            "parameter_type": "real",
+            "values": [
+                0,
+                1
+            ]
+        },
+        "edge_0_3": {
+            "parameter_type": "real",
+            "values": [
+                0,
+                1
+            ]
+        },
+        "edge_0_4": {
+            "parameter_type": "real",
+            "values": [
+                0,
+                1
+            ]
+        },
+        "edge_0_5": {
+            "parameter_type": "real",
+            "values": [
+                0,
+                1
+            ]
+        },
+        "edge_0_6": {
+            "parameter_type": "real",
+            "values": [
+                0,
+                1
+            ]
+        },
+        "edge_1_2": {
+            "parameter_type": "real",
+            "values": [
+                0,
+                1
+            ]
+        },
+        "edge_1_3": {
+            "parameter_type": "real",
+            "values": [
+                0,
+                1
+            ]
+        },
+        "edge_1_4": {
+            "parameter_type": "real",
+            "values": [
+                0,
+                1
+            ]
+        },
+        "edge_1_5": {
+            "parameter_type": "real",
+            "values": [
+                0,
+                1
+            ]
+        },
+        "edge_1_6": {
+            "parameter_type": "real",
+            "values": [
+                0,
+                1
+            ]
+        },
+        "edge_2_3": {
+            "parameter_type": "real",
+            "values": [
+                0,
+                1
+            ]
+        },
+        "edge_2_4": {
+            "parameter_type": "real",
+            "values": [
+                0,
+                1
+            ]
+        },
+        "edge_2_5": {
+            "parameter_type": "real",
+            "values": [
+                0,
+                1
+            ]
+        },
+        "edge_2_6": {
+            "parameter_type": "real",
+            "values": [
+                0,
+                1
+            ]
+        },
+        "edge_3_4": {
+            "parameter_type": "real",
+            "values": [
+                0,
+                1
+            ]
+        },
+        "edge_3_5": {
+            "parameter_type": "real",
+            "values": [
+                0,
+                1
+            ]
+        },
+        "edge_3_6": {
+            "parameter_type": "real",
+            "values": [
+                0,
+                1
+            ]
+        },
+        "edge_4_5": {
+            "parameter_type": "real",
+            "values": [
+                0,
+                1
+            ]
+        },
+        "edge_4_6": {
+            "parameter_type": "real",
+            "values": [
+                0,
+                1
+            ]
+        },
+        "edge_5_6": {
+            "parameter_type": "real",
+            "values": [
+                0,
+                1
+            ]
+        }
+    }
+}

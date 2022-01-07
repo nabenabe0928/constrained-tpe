@@ -1,0 +1,97 @@
+{
+    "application_name": "hpolib",
+    "optimization_objectives": [
+        "loss"
+    ],
+    "feasible_output": {
+        "enable_feasible_predictor": true,
+        "name": "Valid",
+        "true_value": "True",
+        "false_value": "False"
+    },
+    "optimization_iterations": 190,
+    "number_of_cpus": 1,
+    "local_search_starting_points": 3,
+    "local_search_random_points": 100,
+    "input_parameters": {
+        "init_lr": {
+            "parameter_type": "ordinal",
+            "values": [
+                -7.60090246,
+                -6.90775528,
+                -5.29831737,
+                -4.60517019,
+                -2.99573227,
+                -2.30258509
+            ]
+        },
+        "lr_schedule": {
+            "parameter_type": "categorical",
+            "values": [
+                0,
+                1
+            ]
+        },
+        "batch_size": {
+            "parameter_type": "ordinal",
+            "values": [
+                2.07944154,
+                2.77258872,
+                3.4657359,
+                4.15888308
+            ]
+        },
+        "activation_fn_1": {
+            "parameter_type": "categorical",
+            "values": [
+                0,
+                1
+            ]
+        },
+        "activation_fn_2": {
+            "parameter_type": "categorical",
+            "values": [
+                0,
+                1
+            ]
+        },
+        "dropout_1": {
+            "parameter_type": "ordinal",
+            "values": [
+                0.0,
+                0.3,
+                0.6
+            ]
+        },
+        "dropout_2": {
+            "parameter_type": "ordinal",
+            "values": [
+                0.0,
+                0.3,
+                0.6
+            ]
+        },
+        "n_units_1": {
+            "parameter_type": "ordinal",
+            "values": [
+                2.77258872,
+                3.4657359,
+                4.15888308,
+                4.85203026,
+                5.54517744,
+                6.23832463
+            ]
+        },
+        "n_units_2": {
+            "parameter_type": "ordinal",
+            "values": [
+                2.77258872,
+                3.4657359,
+                4.15888308,
+                4.85203026,
+                5.54517744,
+                6.23832463
+            ]
+        }
+    }
+}

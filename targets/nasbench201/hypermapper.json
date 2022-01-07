@@ -1,0 +1,78 @@
+{
+    "application_name": "nasbench201",
+    "optimization_objectives": [
+        "loss"
+    ],
+    "feasible_output": {
+        "enable_feasible_predictor": true,
+        "name": "Valid",
+        "true_value": "True",
+        "false_value": "False"
+    },
+    "optimization_iterations": 190,
+    "number_of_cpus": 1,
+    "local_search_starting_points": 3,
+    "local_search_random_points": 100,
+    "input_parameters": {
+        "edge_0_1": {
+            "parameter_type": "categorical",
+            "values": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        "edge_0_2": {
+            "parameter_type": "categorical",
+            "values": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        "edge_0_3": {
+            "parameter_type": "categorical",
+            "values": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        "edge_1_2": {
+            "parameter_type": "categorical",
+            "values": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        "edge_1_3": {
+            "parameter_type": "categorical",
+            "values": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        },
+        "edge_2_3": {
+            "parameter_type": "categorical",
+            "values": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        }
+    }
+}
