@@ -1,5 +1,5 @@
 # Constraint Tree-structured Parzen Estimator (c-TPE)
-This package was used for the experiments of the paper `Constraint Tree-structured Parzen Estimator for Hyperparameter Optimization`.
+This package was used for the experiments of the paper `c-TPE: Generalizing Tree-structured Parzen Estimator with Inequality Constraints for Continuous and Categorical Hyperparameter Optimization`.
 Note that the inference speed of c-TPE is not optimized to avoid bugs; however, when we optimize the speed, it will run as quick as NSGA-II.
 
 ## Setup
