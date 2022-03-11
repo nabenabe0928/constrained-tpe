@@ -78,7 +78,7 @@ class GaussKernel():
             return self.norm_const / z * np.exp(-0.5 * mahalanobis)
         else:
             integral_u = self.cdf(np.minimum(x + 0.5 * self.q, self.ub))
-            integral_l = self.cdf(np.maximum(x + 0.5 * self.q, self.lb))
+            integral_l = self.cdf(np.maximum(x - 0.5 * self.q, self.lb))
             return integral_u - integral_l
 
     def log_pdf(self, x: Union[NumericType, np.ndarray]) -> Union[NumericType, np.ndarray]:
@@ -100,7 +100,7 @@ class GaussKernel():
             return self.logpdf_const - 0.5 * mahalanobis
         else:
             integral_u = self.cdf(np.minimum(x + 0.5 * self.q, self.ub))
-            integral_l = self.cdf(np.maximum(x + 0.5 * self.q, self.lb))
+            integral_l = self.cdf(np.maximum(x - 0.5 * self.q, self.lb))
             return np.log(integral_u - integral_l + EPS)
 
     def cdf(self, x: Union[NumericType, np.ndarray]) -> Union[NumericType, np.ndarray]:
