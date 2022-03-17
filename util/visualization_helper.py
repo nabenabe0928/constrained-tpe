@@ -4,8 +4,6 @@ import numpy as np
 
 import ujson as json
 
-from util.constants import DOMAIN_SIZE_CHOICES
-
 
 OPT_NAMES = ['KA_tpe', 'tpe', 'vanilla_tpe', 'random_search', 'nsga2', 'cbo', 'hm']
 
@@ -131,7 +129,7 @@ class ExperimentCollector:
         dataset: str,
         constraint_keys: List[str],
         opt_names: List[str] = OPT_NAMES,
-        feasible_domains: List[int] = DOMAIN_SIZE_CHOICES,
+        feasible_domains: List[int] = list(range(10, 100, 10)),
         n_seeds: int = 50
     ):
 

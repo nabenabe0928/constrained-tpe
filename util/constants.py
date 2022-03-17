@@ -27,7 +27,7 @@ type2config = {
     str: 'CategoricalHyperparameter'
 }
 
-DOMAIN_SIZE_CHOICES = list(range(10, 100, 10))
+DOMAIN_SIZE_CHOICES = list(range(10, 110, 10))
 
 
 def default_percentile_maker() -> Callable[[np.ndarray], int]:

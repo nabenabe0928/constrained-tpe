@@ -421,11 +421,17 @@ class TPEOptimizer(BaseOptimizer):
         config_cands = self.tpe_samplers[self.metric_name].get_config_candidates()
 
         for obj_name in self.constraints.keys():
+            if self.constraints[obj_name] == np.inf:
+                continue
+
             configs = self.tpe_samplers[obj_name].get_config_candidates()
             config_cands = [np.concatenate([cfg0, cfg1]) for cfg0, cfg1 in zip(config_cands, configs)]
 
         pi_config = self.tpe_samplers[self.metric_name].compute_probability_improvement(config_cands=config_cands)
         for obj_name in self.constraints.keys():
+            if self.constraints[obj_name] == np.inf:
+                continue
+
             pi_config += self.tpe_samplers[obj_name].compute_probability_improvement(config_cands=config_cands)
 
         best_idx = int(np.argmax(pi_config))
