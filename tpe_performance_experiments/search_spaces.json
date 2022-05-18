@@ -1,0 +1,445 @@
+{
+    "hpolib": {
+        "init_lr": [
+            5e-4,
+            1e-3,
+            5e-3,
+            1e-2,
+            5e-2,
+            1e-1
+        ],
+        "lr_schedule": [
+            "cosine",
+            "const"
+        ],
+        "batch_size": [
+            8,
+            16,
+            32,
+            64
+        ],
+        "activation_fn_1": [
+            "relu",
+            "tanh"
+        ],
+        "activation_fn_2": [
+            "relu",
+            "tanh"
+        ],
+        "dropout_1": [
+            0.0,
+            0.3,
+            0.6
+        ],
+        "dropout_2": [
+            0.0,
+            0.3,
+            0.6
+        ],
+        "n_units_1": [
+            16,
+            32,
+            64,
+            128,
+            256,
+            512
+        ],
+        "n_units_2": [
+            16,
+            32,
+            64,
+            128,
+            256,
+            512
+        ]
+    },
+    "nasbench201": {
+        "edge_0_1": [
+            "none",
+            "skip_connect",
+            "nor_conv_1x1",
+            "nor_conv_3x3",
+            "avg_pool_3x3"
+        ],
+        "edge_0_2": [
+            "none",
+            "skip_connect",
+            "nor_conv_1x1",
+            "nor_conv_3x3",
+            "avg_pool_3x3"
+        ],
+        "edge_0_3": [
+            "none",
+            "skip_connect",
+            "nor_conv_1x1",
+            "nor_conv_3x3",
+            "avg_pool_3x3"
+        ],
+        "edge_1_2": [
+            "none",
+            "skip_connect",
+            "nor_conv_1x1",
+            "nor_conv_3x3",
+            "avg_pool_3x3"
+        ],
+        "edge_1_3": [
+            "none",
+            "skip_connect",
+            "nor_conv_1x1",
+            "nor_conv_3x3",
+            "avg_pool_3x3"
+        ],
+        "edge_2_3": [
+            "none",
+            "skip_connect",
+            "nor_conv_1x1",
+            "nor_conv_3x3",
+            "avg_pool_3x3"
+        ]
+    },
+    "cifar10A": {
+        "op_node_0": [
+            "conv1x1-bn-relu",
+            "conv3x3-bn-relu",
+            "maxpool3x3"
+        ],
+        "op_node_1": [
+            "conv1x1-bn-relu",
+            "conv3x3-bn-relu",
+            "maxpool3x3"
+        ],
+        "op_node_2": [
+            "conv1x1-bn-relu",
+            "conv3x3-bn-relu",
+            "maxpool3x3"
+        ],
+        "op_node_3": [
+            "conv1x1-bn-relu",
+            "conv3x3-bn-relu",
+            "maxpool3x3"
+        ],
+        "op_node_4": [
+            "conv1x1-bn-relu",
+            "conv3x3-bn-relu",
+            "maxpool3x3"
+        ],
+        "edge_0_1": [
+            "True",
+            "False"
+        ],
+        "edge_0_2": [
+            "True",
+            "False"
+        ],
+        "edge_0_3": [
+            "True",
+            "False"
+        ],
+        "edge_0_4": [
+            "True",
+            "False"
+        ],
+        "edge_0_5": [
+            "True",
+            "False"
+        ],
+        "edge_0_6": [
+            "True",
+            "False"
+        ],
+        "edge_1_2": [
+            "True",
+            "False"
+        ],
+        "edge_1_3": [
+            "True",
+            "False"
+        ],
+        "edge_1_4": [
+            "True",
+            "False"
+        ],
+        "edge_1_5": [
+            "True",
+            "False"
+        ],
+        "edge_1_6": [
+            "True",
+            "False"
+        ],
+        "edge_2_3": [
+            "True",
+            "False"
+        ],
+        "edge_2_4": [
+            "True",
+            "False"
+        ],
+        "edge_2_5": [
+            "True",
+            "False"
+        ],
+        "edge_2_6": [
+            "True",
+            "False"
+        ],
+        "edge_3_4": [
+            "True",
+            "False"
+        ],
+        "edge_3_5": [
+            "True",
+            "False"
+        ],
+        "edge_3_6": [
+            "True",
+            "False"
+        ],
+        "edge_4_5": [
+            "True",
+            "False"
+        ],
+        "edge_4_6": [
+            "True",
+            "False"
+        ],
+        "edge_5_6": [
+            "True",
+            "False"
+        ]
+    },
+    "cifar10B": {
+        "op_node_0": [
+            "conv1x1-bn-relu",
+            "conv3x3-bn-relu",
+            "maxpool3x3"
+        ],
+        "op_node_1": [
+            "conv1x1-bn-relu",
+            "conv3x3-bn-relu",
+            "maxpool3x3"
+        ],
+        "op_node_2": [
+            "conv1x1-bn-relu",
+            "conv3x3-bn-relu",
+            "maxpool3x3"
+        ],
+        "op_node_3": [
+            "conv1x1-bn-relu",
+            "conv3x3-bn-relu",
+            "maxpool3x3"
+        ],
+        "op_node_4": [
+            "conv1x1-bn-relu",
+            "conv3x3-bn-relu",
+            "maxpool3x3"
+        ],
+        "edge_0": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20"
+        ],
+        "edge_1": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20"
+        ],
+        "edge_2": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20"
+        ],
+        "edge_3": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20"
+        ],
+        "edge_4": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20"
+        ],
+        "edge_5": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20"
+        ],
+        "edge_6": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20"
+        ],
+        "edge_7": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20"
+        ],
+        "edge_8": [
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20"
+        ]
+    }
+}

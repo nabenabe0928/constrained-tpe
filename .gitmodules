@@ -1,0 +1,6 @@
+[submodule "tpe_performance_experiments/CoCaBO_code"]
+	path = tpe_performance_experiments/CoCaBO_code
+	url = https://github.com/rubinxin/CoCaBO_code.git
+[submodule "tpe_performance_experiments/TuRBO"]
+	path = tpe_performance_experiments/TuRBO
+	url = https://github.com/uber-research/TuRBO.git
