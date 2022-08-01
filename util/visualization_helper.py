@@ -2,6 +2,8 @@ from typing import Dict, List, Optional, Tuple
 
 import numpy as np
 
+from scipy.stats import rankdata
+
 import ujson as json
 
 
@@ -174,16 +176,14 @@ class ExperimentCollector:
         for domain_size in self.feasible_domains:
             rank_dict[domain_size] = {}
             dcs = self.data_collectors[domain_size]
-            # means: List[np.ndarray] = []
-            medians: List[np.ndarray] = []
+            means: List[np.ndarray] = []
 
             for opt_name in self.opt_names:
                 # average in the seed direction
-                # mean_over_seed: np.ndarray = dcs[opt_name].cum_loss.mean(axis=0)
-                median_over_seed: np.ndarray = np.median(dcs[opt_name].cum_loss, axis=0)
-                medians.append(median_over_seed)
+                mean_over_seed: np.ndarray = dcs[opt_name].cum_loss.mean(axis=0)
+                means.append(mean_over_seed)
 
-            rank = np.argsort(np.argsort(medians, axis=0), axis=0) + 1  # rank in the opt name direction
+            rank = rankdata(means, axis=0) + 1  # rank in the opt name direction
             rank_dict[domain_size] = {opt_name: r for opt_name, r in zip(self.opt_names, rank)}
 
         return rank_dict
@@ -202,7 +202,7 @@ class ExperimentCollector:
             for opt_name in self.opt_names:
                 means.append(dcs[opt_name].get_best_loss(inf_pad=inf_pad, end=end).mean())
 
-            rank = np.argsort(np.argsort(means)) + 1
+            rank = rankdata(means) + 1
             rank_dict[domain_size] = {opt_name: r for opt_name, r in zip(self.opt_names, rank)}
 
         return rank_dict
