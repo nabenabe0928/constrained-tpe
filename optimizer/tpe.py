@@ -38,6 +38,7 @@ class TreeStructuredParzenEstimator:
                  percentile_func: Callable[[np.ndarray], int],
                  weight_func: Callable[[int, int], np.ndarray],
                  n_ei_candidates: int, metric_name: str = 'loss',
+                 naive_mode: bool = False,
                  min_bandwidth_factor: float = 1e-2, seed: Optional[int] = None):
         """
         Attributes:
@@ -63,6 +64,7 @@ class TreeStructuredParzenEstimator:
         self._metric_name = metric_name
         self._n_lower, self._percentile = 0, 0
         self._min_bandwidth_factor = min_bandwidth_factor
+        self._naive_mode = naive_mode
 
         self._observations = {hp_name: np.array([]) for hp_name in self._hp_names}
         self._sorted_observations = {hp_name: np.array([]) for hp_name in self._hp_names}
@@ -125,7 +127,7 @@ class TreeStructuredParzenEstimator:
 
         if is_satisfied is not None:
             self._sorted_is_satisfied = np.insert(self._sorted_is_satisfied, insert_loc, is_satisfied)
-            min_num = self._compute_min_num_for_lower_observations()
+            min_num = self._compute_min_num_for_lower_observations() if not self._naive_mode else 1
             self._n_lower = self.percentile_func(self._sorted_observations[self.metric_name], min_num=min_num)
         else:
             self._n_lower = self.percentile_func(self._sorted_observations[self.metric_name])
@@ -253,13 +255,16 @@ class TreeStructuredParzenEstimator:
         Note:
             We need to consider the gamma unlike the normal TPE implementation.
             p(y < y*) propto (r + (1 - r)g(x)/l(x))^-1
-                      = exp(log(r)) + exp(log(1 - r) + log(g(x)/l(x)))
+                      = (exp(log(r)) + exp(log(1 - r) + log(g(x)/l(x))))^-1
         """
         config_ll_lower, config_ll_upper = self.compute_config_loglikelihoods(config_cands=config_cands)
-        first_term = np.log(self.percentile + EPS)
-        second_term = np.log(1. - self.percentile + EPS) + config_ll_upper - config_ll_lower
-        pi = - np.logaddexp(first_term, second_term)
-        return pi
+        if self._naive_mode:
+            return config_ll_lower - config_ll_upper
+        else:
+            first_term = np.log(self.percentile + EPS)
+            second_term = np.log(1. - self.percentile + EPS) + config_ll_upper - config_ll_lower
+            pi = - np.logaddexp(first_term, second_term)
+            return pi
 
     def _get_parzen_estimator(self, lower_vals: np.ndarray, upper_vals: np.ndarray, hp_name: str,
                               is_categorical: bool) -> Tuple[ParzenEstimatorType, ParzenEstimatorType]:
@@ -355,6 +360,7 @@ class TPEOptimizer(BaseOptimizer):
                  resultfile: str, n_init: int = 10, constraints: Dict[str, float] = {},
                  max_evals: int = 100, seed: Optional[int] = None, metric_name: str = 'loss',
                  n_ei_candidates: int = 24,
+                 naive_mode: bool = False,
                  percentile_func_maker: PercentileFuncMaker = default_percentile_maker,
                  threshold_func_maker: PercentileFuncMaker = default_threshold_maker,
                  weight_func: Callable[[int, int], np.ndarray] = default_weights):
@@ -377,7 +383,8 @@ class TPEOptimizer(BaseOptimizer):
                 n_ei_candidates=n_ei_candidates,
                 seed=seed,
                 percentile_func=percentile_func_maker(),
-                weight_func=weight_func
+                weight_func=weight_func,
+                naive_mode=naive_mode,
             )
         }
 
@@ -388,7 +395,8 @@ class TPEOptimizer(BaseOptimizer):
                 n_ei_candidates=n_ei_candidates,
                 seed=seed,
                 percentile_func=threshold_func_maker(upper_bound=upper_bound),
-                weight_func=weight_func
+                weight_func=weight_func,
+                naive_mode=naive_mode,
             )
 
     def update(self, eval_config: Dict[str, Any], results: Dict[str, float]) -> None:
