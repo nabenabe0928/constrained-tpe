@@ -52,6 +52,7 @@ def get_args_from_parser(Choices: Enum, opts: Dict) -> Namespace:
     parser.add_argument('--max_evals', type=int, default=100)
     parser.add_argument('--feasible_domain', type=int, choices=DOMAIN_SIZE_CHOICES, default=10)
     parser.add_argument('--knowledge_augmentation', type=str, choices=['True', 'False'], default='False')
+    parser.add_argument('--naive', type=str, choices=['True', 'False'], default='False')
     parser.add_argument('--constraint', type=str, choices=['True', 'False'], default='True')
     parser.add_argument('--constraint_mode', type=int, choices=[0, 1, 2], default=0)
 
@@ -60,6 +61,7 @@ def get_args_from_parser(Choices: Enum, opts: Dict) -> Namespace:
 
     args = parser.parse_args()
     args.knowledge_augmentation = eval(args.knowledge_augmentation)
+    args.naive = eval(args.naive)
     args.constraint = eval(args.constraint)
 
     return args
@@ -67,13 +69,14 @@ def get_args_from_parser(Choices: Enum, opts: Dict) -> Namespace:
 
 def get_filename_from_args(bench_name: str, constraints: List[Enum], args: Namespace) -> str:
     knowledge_augmentation = 'KA_' if args.knowledge_augmentation else ''
+    naive = "naive_" if args.naive else ""
     constraint = '' if args.constraint else 'vanilla_'
 
     constraint_dict = {'n_params': 'n_params', 'size_in_mb': 'n_params', 'runtime': 'runtime'}
     constraint_name = ','.join([constraint_dict[c.name] for c in constraints])
 
     name = f'{constraint_name}/{bench_name}/{args.dataset}/feasible_{args.feasible_domain:0>3}per' \
-           f'/{constraint}{knowledge_augmentation}{args.opt_name}/{args.exp_id:0>3}'
+           f'/{constraint}{naive}{knowledge_augmentation}{args.opt_name}/{args.exp_id:0>3}'
     return name
 
 

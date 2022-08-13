@@ -16,6 +16,10 @@ fork_of_runs () {
         then
             # Knowledge augmentation is only available for TPE
             next_cmd="${cmd} --knowledge_augmentation True --feasible_domain ${percentile} --opt_name tpe"
+        elif [[ "$opt_name" == "naive_tpe" ]]
+        then
+            # c-TPE with the naive mode
+            next_cmd="${cmd} --naive True --feasible_domain ${percentile} --opt_name tpe"
         elif [[ "$opt_name" == "normal_tpe" ]]
         then
             # non constraint TPE

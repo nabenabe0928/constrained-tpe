@@ -48,6 +48,8 @@ if __name__ == '__main__':
     )
     if args.opt_name == 'hm':
         kwargs.update(hypermapper_json='targets/hpolib/hypermapper.json')
+    if args.naive:
+        kwargs.update(naive_mode=True)
 
     opt = opts[args.opt_name](**kwargs)
 
