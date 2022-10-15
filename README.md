@@ -1,8 +1,8 @@
 # To reviewers
-To easily download our repository, we provide the zip file for this repository as `constraint_tpe.zip`.
+To easily download our repository, we provide the zip file for this repository as `constrained-tpe.zip`.
 Please download this file to test our code.
 
-# Constraint Tree-structured Parzen Estimator (c-TPE)
+# Constrained Tree-structured Parzen Estimator (c-TPE)
 This package was used for the experiments of the paper `c-TPE: Generalizing Tree-structured Parzen Estimator with Inequality Constraints for Continuous and Categorical Hyperparameter Optimization`.
 Note that the inference speed of c-TPE is not optimized to avoid bugs; however, when we optimize the speed, it will run as quick as NSGA-II.
 
@@ -49,7 +49,8 @@ The constraint information used in the experiments is available in each `constra
 ## Running example
 The data obtained in the experiments are reproduced by the following command:
 ```bash
-./submit.sh
+# from seed 0 to 19
+./submit.sh -s 0 -d 19
 ```
 Note that `submit.sh` will perform 81,000 of optimizations each with 200 evaluations of configurations.
 
