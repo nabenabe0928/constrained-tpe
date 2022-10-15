@@ -78,3 +78,15 @@ $ python optimize_hpolib.py --opt_name nsga2
 # Test of Random search
 $ python optimize_hpolib.py --opt_name random_search
 ```
+
+# Citations
+
+For the citation, use the following format:
+```
+@article{watanabe2022ctpe,
+  title={c-TPE: Generalizing Tree-structured Parzen Estimator with Inequality Constraints for Continuous and Categorical Hyperparameter Optimization},
+  author={S. Watanabe and F. Hutter},
+  journal={Gaussian Processes, Spatiotemporal Modeling, and Decision-making Systems Workshop at Advances in Neural Information Processing Systems},
+  year={2022}
+}
+```
