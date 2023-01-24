@@ -3,7 +3,7 @@ To easily download our repository, we provide the zip file for this repository a
 Please download this file to test our code.
 
 # Constrained Tree-structured Parzen Estimator (c-TPE)
-This package was used for the experiments of the paper `c-TPE: Generalizing Tree-structured Parzen Estimator with Inequality Constraints for Continuous and Categorical Hyperparameter Optimization`.
+This package was used for the experiments of the paper `c-TPE: Tree-structured Parzen Estimator with Inequality Constraints for Expensive Hyperparameter Optimization`.
 Note that the inference speed of c-TPE is not optimized to avoid bugs; however, when we optimize the speed, it will run as quick as NSGA-II.
 
 ## Setup
@@ -77,16 +77,4 @@ $ python optimize_hpolib.py --opt_name nsga2
 
 # Test of Random search
 $ python optimize_hpolib.py --opt_name random_search
-```
-
-# Citations
-
-For the citation, use the following format:
-```
-@article{watanabe2022ctpe,
-  title={c-TPE: Generalizing Tree-structured Parzen Estimator with Inequality Constraints for Continuous and Categorical Hyperparameter Optimization},
-  author={S. Watanabe and F. Hutter},
-  journal={Gaussian Processes, Spatiotemporal Modeling, and Decision-making Systems Workshop at Advances in Neural Information Processing Systems},
-  year={2022}
-}
 ```
