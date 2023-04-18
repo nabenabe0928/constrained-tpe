@@ -136,7 +136,7 @@ class GaussKernel():
         trunc_lb, trunc_ub = (self.lb - self.mu) / self.sigma, (self.ub - self.mu) / self.sigma
         val = truncnorm.rvs(trunc_lb, trunc_ub, scale=1.0, random_state=rng)
         val = val * self.sigma + self.mu
-        return val if self.q is None else np.round(val / self.q) * self.q
+        return val if self.q is None else np.round((val - self.lb) / self.q) * self.q + self.lb
 
     @property
     def mu(self) -> NumericType:
