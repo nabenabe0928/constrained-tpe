@@ -83,10 +83,10 @@ $ python optimize_hpolib.py --opt_name random_search
 
 For the citation, use the following format:
 ```
-@article{watanabe2022ctpe,
-  title={c-TPE: Generalizing Tree-structured Parzen Estimator with Inequality Constraints for Continuous and Categorical Hyperparameter Optimization},
+@article{watanabe2023ctpe,
+  title={{c-TPE}: Tree-structured {P}arzen Estimator with Inequality Constraints for Expensive Hyperparameter Optimization},
   author={S. Watanabe and F. Hutter},
-  journal={Gaussian Processes, Spatiotemporal Modeling, and Decision-making Systems Workshop at Advances in Neural Information Processing Systems},
-  year={2022}
+  journal={International Joint Conference on Artificial Intelligence},
+  year={2023}
 }
 ```
