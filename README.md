@@ -1,16 +1,12 @@
-# To reviewers
-To easily download our repository, we provide the zip file for this repository as `constrained-tpe.zip`.
-Please download this file to test our code.
-
 # Constrained Tree-structured Parzen Estimator (c-TPE)
-This package was used for the experiments of the paper `c-TPE: Generalizing Tree-structured Parzen Estimator with Inequality Constraints for Continuous and Categorical Hyperparameter Optimization`.
+This package was used for the experiments of the paper `c-TPE: Tree-structured Parzen Estimator with Inequality Constraints for Expensive Hyperparameter Optimization`.
 Note that the inference speed of c-TPE is not optimized to avoid bugs; however, when we optimize the speed, it will run as quick as NSGA-II.
 
 ## Setup
 This package requires python 3.8 or later version.
 You can install the dependency by:
 ```bash
-$ conda create -n ctpe python==3.8
+$ conda create -n ctpe python==3.9
 $ pip install -r requirements.txt
 
 # NASBench101 setup
