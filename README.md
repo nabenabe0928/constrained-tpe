@@ -2,7 +2,54 @@
 This package was used for the experiments of the paper `c-TPE: Tree-structured Parzen Estimator with Inequality Constraints for Expensive Hyperparameter Optimization`.
 Note that the inference speed of c-TPE is not optimized to avoid bugs; however, when we optimize the speed, it will run as quick as NSGA-II.
 
-## Setup
+## Usage
+A simple example of c-TPE is available in [optimize_toy.py](optimize_toy.py).
+After you run `pip install -r requirements.txt`, you can run the Python file with:
+
+```shell
+$ python optimize_toy.py
+```
+
+The example looks like this:
+
+```python
+from typing import Dict, Any
+
+import ConfigSpace as CS
+
+from util.utils import get_logger
+
+from optimizer import TPEOptimizer
+
+
+def func(eval_config: Dict[str, Any]) -> Dict[str, float]:
+    x, y = eval_config["x"], eval_config["y"]
+    return dict(loss=x**2 + y**2, c1=x, c2=x)
+
+
+if __name__ == '__main__':
+    fn = "toy-example"
+    logger = get_logger(file_name=fn, logger_name=fn)
+
+    config_space = CS.ConfigurationSpace()
+    config_space.add_hyperparameters([
+        CS.UniformFloatHyperparameter(name="x", lower=-5.0, upper=5.0),
+        CS.UniformFloatHyperparameter(name="y", lower=-5.0, upper=5.0),
+    ])
+
+    kwargs = dict(
+        obj_func=func,
+        config_space=config_space,
+        resultfile=fn,
+        max_evals=100,  # the number of configurations to evaluate
+        constraints={"c1": 0.0, "c2": 0.0},  # c1 <= 0.0 and c2 <= 0.0 must hold
+    )
+    opt = TPEOptimizer(**kwargs)
+    opt.optimize(logger)
+
+```
+
+## Setup to Reproduce Our Results
 This package requires python 3.8 or later version.
 You can install the dependency by:
 ```bash
@@ -42,7 +89,7 @@ $ mv NATS-tss-v1_0-3ffb9-simple nasbench201
 
 The constraint information used in the experiments is available in each `constraints.json` in the [targets](targets/) directory.
 
-## Running example
+## Running Command to Reproduce Our Results
 The data obtained in the experiments are reproduced by the following command:
 ```bash
 # from seed 0 to 19
@@ -75,7 +122,7 @@ $ python optimize_hpolib.py --opt_name nsga2
 $ python optimize_hpolib.py --opt_name random_search
 ```
 
-# Citations
+## Citations
 
 For the citation, use the following format:
 ```
